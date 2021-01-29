@@ -1,18 +1,39 @@
 {
   "name": "Quiz-Game---Part-02",
-  "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/UnstableCodebase/Quiz-Game---Part-02.git",
   "author": "PernilleOfte <pernilleo1@hotmail.com>",
   "license": "MIT",
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "7.12.10",
+    "@babel/core": "7.12.10",
+    "@babel/preset-env": "7.12.11",
+    "babel-jest": "24.9.0",
+    "jest": "24.9.0",
+    "webpack": "5.11.1",
+    "webpack-cli": "4.3.1",
+    "webpack-dev-server": "3.11.1"
+  },
+  "engines": {
+    "node": "^14.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.(js|jsx)"
+    ],
+    "testRegex": "tests/.*-test\\.(js|jsx)$"
+  },
+
+
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve --open --mode development",
     "test": "jest --coverage"
   },
-  "devDependencies": {
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
-  }
+  "version": "1.0.0"
 }
