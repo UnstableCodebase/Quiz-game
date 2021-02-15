@@ -1,4 +1,4 @@
-
+import {getRandomQuizzes} from "./quizzes";
 
 //denne funksjonen gjør flere ting definerer knapper, generer prompt hvis svarer feil er riktig på et spørsmål.
 function answerTag (prefix, answer, correct){
@@ -26,17 +26,11 @@ function displayQuiz (quiz) {
     quizDiv.innerHTML = html;
 }
 
-let currentQuizIndex = 0;
 
-function displayNewQuiz(){
-    let index = Math.floor(Math.random() * quizzes.length)
+export function displayNewQuiz(){
 
-    if(index === currentQuizIndex){
-        index = (index) % quizzes.length;
-    }
 
-    const quiz = quizzes[index];
-    currentQuizIndex = index;
+ const quiz = getRandomQuizzes(1) [0];
 
     displayQuiz(quiz);
 }

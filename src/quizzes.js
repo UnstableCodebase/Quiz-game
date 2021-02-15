@@ -36,6 +36,28 @@ const quizzes = [
     }
 
 ];
-export function getRandomQuizzes(numberOfQuzzies){
+export function getRandomQuizzes(numberOfQuizzes){
+    if(numberOfQuizzes < 1){
+        throw "Invalid number of requested quizzes: " +n;
+    }
+    if(numberOfQuizzes > quizzes.length){
+        throw "Too many quizzes";
+    }
+
+    const selection = Array(numberOfQuizzes);
+
+    let i = 0;
+    while (i < numberOfQuizzes) {
+
+        const k = Math.floor(quizzes.length * Math.random());
+        if (selection.includes(k)) {
+            continue;
+        }
+
+        selection[i] = k;
+        i++;
+    }
+
+    return Array.from(selection).map(e => quizzes[e]);
 
 }
