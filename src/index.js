@@ -4,7 +4,7 @@ import {getRandomQuizzes} from "./quizzes";
 function answerTag (prefix, answer, correct){
     let onclick;
     if (correct) {
-        onclick = "alert('correct'); displayNewQuiz();";
+        onclick = "alert('correct'); EntryPoint.displayNewQuiz();";
     }else{
         onclick = "alert('wrong answer');";
     }
@@ -15,13 +15,13 @@ function answerTag (prefix, answer, correct){
 //Denne funksjonen genererer knappene og spørsmålet på nettsiden
 function displayQuiz (quiz) {
 
-    let html ="<p class='question'>Question: \""+ quiz.question + "\"<\p>";
-    html += answerTag("A: ", quiz.answer_0, quiz.indexOfRightAnswer === 0);
-    html += answerTag("B: ", quiz.answer_1, quiz.indexOfRightAnswer === 1);
-    html += answerTag("C: ", quiz.answer_2, quiz.indexOfRightAnswer === 2);
-    html += answerTag("D: ", quiz.answer_3, quiz.indexOfRightAnswer === 3);
+    let html = "<p class='question'>Question: \"" + quiz.question + "\"</p>";
+    html += answerTag("A: ", quiz.answers[0], quiz.indexOfRightAnswer === 0);
+    html += answerTag("B: ", quiz.answers[1], quiz.indexOfRightAnswer === 1);
+    html += answerTag("C: ", quiz.answers[2], quiz.indexOfRightAnswer === 2);
+    html += answerTag("D: ", quiz.answers[3], quiz.indexOfRightAnswer === 3);
 
-    const quizDiv = document.getElementById('quizDiv')
+    const quizDiv = document.getElementById("quizDivId");
 
     quizDiv.innerHTML = html;
 }
